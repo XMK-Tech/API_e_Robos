@@ -1,0 +1,352 @@
+﻿@using AgilleApi.Domain.Extensions;
+@model AgilleApi.Domain.ViewModel.ProprietyAreaReportViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Area Report</title>
+
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/
+                                                        v2.0 | 20110126
+                                                        License: none (public domain)
+                                                        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+            blockquote:before, blockquote:after,
+            q:before, q:after {
+                content: '';
+                content: none;
+            }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+        }
+
+        table {
+            width: 940px;
+            margin: 20px auto;
+        }
+
+        td {
+            border: 2px solid black;
+            border-top: none;
+            padding: 2px;
+            font-size: 20px;
+            color: black;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .vertical-center
+        {
+            vertical-align: central;
+        }
+
+        .center {
+            text-align: center;
+        }
+        .right{
+            text-align: right;
+        }
+
+        .left {
+            text-align: left;
+        }
+    </style>
+
+    <!-- Razor table config -->
+    <style type="text/css">
+        table {
+            page-break-inside: auto
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto
+        }
+
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr style="width: 100%;">
+            <td colspan="1" style="border: none; border-collapse: collapse;">
+                <div class="vertical-center">
+                    <img src="@Model.Image" alt="logo" style="width:90px;height:90px;">
+                </div>
+            </td>
+            <td colspan="4" style="border: none; border-collapse: collapse;">
+                <div class="center" style="display: flex; align-items: center;">
+                    <span class="center" style="font-size: 25px;">
+                        Prefeitura Municipal de @Model.EntityName - @Model.StateInitials
+                    </span>
+                    </br>
+                    <span class="center" style="font-size: 22px;">
+                        Atestado de Avaliação de Valor de Terra Nua de Propriedade Rural
+                    </span>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table>
+        <tr style="background-color: green;">
+            <td class="center" colspan="3" style="color: white;">Dados da propriedade</td>
+        </tr>
+        <tr>
+            <td>
+                <span class="bold">Número do NIRF</span></br>
+                @Model.Cib
+            </td>
+            <td>
+                <span class="bold">Nome do Imóvel</span></br>
+                @Model.Name
+            </td>
+            <td>
+                <span class="bold">Área (Ha)</span></br>
+                @Model.Area
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="bold">Proprietário</span></br>
+                @Model.Owner
+            </td>
+            <td>
+                <span class="bold">Latitude</span></br>
+                @Model.Lat
+            </td>
+            <td>
+                <span class="bold">Longitude</span></br>
+                @Model.Long
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    
+    <table>
+        <tr style="background-color: green;">
+            <td class="center" colspan="6" style="color: white;">Características Agronômicas</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="center bold">
+                Aptidão Agrícola
+            </td>
+            <td colspan="1" class="center bold">
+                Valor/Ha (R$)
+            </td>
+            <td colspan="1" class="center bold">
+                Total (em hectares)
+            </td>
+            <td colspan="1"  class="center bold">
+                Valor total (R$)
+            </td>
+            <td colspan="1" class="center bold">
+                Percentual
+            </td>
+        </tr>
+        
+        @foreach (var line in Model.TableLines)
+        {
+            <tr>
+                <td colspan="2">
+                    @line.Title
+                </td>
+                <td colspan="1" style="text-align:right">
+                    @line.Value.FormatValue()
+                </td>
+                <td colspan="1" style="text-align:right">
+                    @line.TotalArea.FormatValue()
+                </td>
+                <td colspan="1" style="text-align:right">
+                    @line.TotalValue.FormatValue()
+                </td>
+                <td colspan="1" style="text-align:right">
+                    @((Model.Total != 0 ) ? ((line.TotalValue*100)/Model.Total).FormatValue() : 0)%
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <td colspan="4" style="text-align:right" class="bold">
+                Total
+            </td>
+            <td colspan="2" style="text-align:left">
+                R$ @Model.Total.FormatValue()
+            </td>
+        </tr>
+    </table>
+
+    </br></br></br></br>
+
+    <div style="text-align: justify; width: 99.5%">
+        <span class="bold"> Lavoura Aptidão Boa:</span> Terra que suporta manejo intensivo do solo, apta a cultura temporária ou
+        permanente, mecanizada ou mecanizável, com boa declividade e solos de boa ou média profundidade, bem
+        drenados, irrigada ou irrigável ou, ainda, com condições específicas que permitam a prática da atividade
+        agrícola com produtividade alta ou média.
+        
+        </br></br>
+
+        <span class="bold">Lavoura Aptidão Regular:</span> Terra apta a cultura temporária ou permanente que possui limitações de uso,
+        que não comporte manejo intensivo do solo, que não seja apta à mecanização, ou seja, com condições e
+        restrições relacionadas a fatores que diminuam a produtividade, tais como erosão, drenagem, clima, solos
+        rasos e relevo.
+    
+        </br></br>
+
+        <span class="bold">Lavoura Aptidão Restrita:</span> Terras que apresentam limitações fortes para a produção sustentada de um
+        determinado tipo de utilização, observando as condições do manejo considerado. Essas limitações reduzem a
+        produtividade ou os benefícios, ou aumentam os insumos necessários, de tal maneira que os custos só seriam
+        justificados marginalmente.
+    
+        </br></br>
+
+        <span class="bold">Pastagem Plantada:</span> Terra para pastagem plantada ou melhorada, assim considerada à terra imprópria a
+        exploração de lavouras temporárias ou permanentes por possuírem limitações fortes à produção vegetal
+        sustentável, mas que podem ser utilizadas sob forma de pastagem mediante manejo e melhoramento.
+    
+        </br></br>
+
+        <span class="bold">Silvicultura ou Pastagem Natural:</span> Terra para pastagem natural, silvicultura ou reflorestamento, assim
+        considerada a terra cuja possibilidade de manejo e melhoramento resume-se a práticas com baixo nível
+        tecnológico e reduzida aplicação de capital e que, por essa razão, não possibilitam o uso indicado nos incisos
+        anteriores.
+    
+        </br></br>
+
+        <span class="bold">Preservação da Fauna ou Flora:</span> Terra inaproveitável ou com restrição ambiental, terras com restrições
+        físicas, sociais, ambientais ou jurídicas que impossibilitam o uso sustentável e, por isso, são indicadas para a
+        preservação da flora e da fauna ou para outros usos não agrários.
+        
+        <div style="page-break-before: always;">
+            
+        </div>
+
+        @if(Model.AllProprieties)
+        {  
+            <div>
+                Informamos que os imóveis supracitados estão cadastrados em nossa base de dados e podem ser consultados
+                posteriormente para a verificação de seus dados individualmente.
+            </div>
+        }
+        else
+        {
+            <div>
+                Informamos que o imóvel acima citado está cadastrado em nossa base de dados sob o número
+                @Model.Cib e avaliado pela Fazenda Pública Municipal em:
+            </div>
+        }
+
+        </br></br>
+
+        A presente avaliação encontra-se com respaldo jurídico nos critérios estabelecidos no inciso III do § 4°do artigo
+        153 da Constituição Federal, nas Leis Federais nºs 5172/66, 9393/96, 8629/93 e 11250/05, no Decreto Federal
+        nº 6433/08, na Instrução Normativa nº 884/08 e item 8.4.1.b do anexo único da Norma de Execução COFIS nº
+        02/2013, ambas da Receita Federal do Brasil.
+        
+        </br></br>
+
+        Os dados do imóvel foram inseridos pelo usuário, consequentemente eventuais erros são 
+        de sua responsabilidade.
+
+        </br></br>
+        <div class="bold">
+            <span>
+                Valor da Terra Nua: @Model.Total.FormatValue()
+            </span>
+            </br>
+            <span>
+                @{
+                    var totalArea = Model.TableLines.Sum(e => e.TotalArea);
+
+                    decimal areaPrice = 0;
+                    if (totalArea != 0)
+                        areaPrice = Model.Total / totalArea;               
+                }
+                Valor médio por hectare: @areaPrice.FormatValue()
+            </span>
+            </br>
+            <span>
+                Referência: 01/01/@Model.Year
+            </span>
+        </div>
+
+        </br></br>
+
+        Nota: Qualquer rasura apresentada invalida o presente documento.
+
+        </br></br>
+
+        Código de Autenticidade: @Model.AuthenticityCode.ToUpper()
+
+        </br></br>
+        <span>
+            @{
+                var now = DateTime.UtcNow.AddHours(-3);
+            }
+            @Model.EntityName - @Model.StateInitials, @now.ToString("d' de 'MMMM' de 'yyyy")
+        </span>
+    </div> 
+
+</body>
+</html>

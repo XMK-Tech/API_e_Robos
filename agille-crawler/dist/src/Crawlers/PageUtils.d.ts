@@ -1,0 +1,14 @@
+import { Page } from "puppeteer";
+import { Parameter } from "../Types/FilterParam";
+export declare function OpenConnection(url: string, headless?: boolean): Promise<Page>;
+export declare function CloseConnection(page: Page): Promise<void>;
+export declare function SetSelectorInput(page: Page, selector: string, value: string): Promise<void>;
+export declare function SelectorClick(page: Page, selector: string): Promise<void>;
+export declare function EventSelectorClick(page: Page, selector: string): Promise<void>;
+export declare function SelectOption(page: Page, selector: string, optionValue: string): Promise<void>;
+export declare function ClickSpanInsideIframe(page: any, iframeSelector: any, spanSelector: any): Promise<void>;
+export declare function AddPageFilterLines(page: any, count: any): Promise<void>;
+export declare function ApplyFilter(page: Page, params: Parameter[]): Promise<void>;
+export declare function SelectEntity(page: Page): Promise<void>;
+export declare function SelectorExists(page: Page, selector: string): Promise<boolean>;
+export declare function WaitForNavigation(page: Page): Promise<void>;

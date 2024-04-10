@@ -1,0 +1,229 @@
+﻿@using AgilleApi.Domain.Enums;
+@using AgilleApi.Domain.Extensions;
+@model AgilleApi.Domain.ViewModel.AgiprevCalculationMonthViewModel
+@{
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>MEDIÇÃO</title>
+    <style>
+        table {
+            width: 920px;
+            margin: 20px auto;
+            font-size: 14px;
+            border-collapse: collapse;
+        }
+
+        tbody td {
+            border: 2px solid black;
+            padding: 2px;
+            margin: 2px;
+        }
+
+        .clean-border {
+            border: none;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .grey-background {
+            background-color: #D0CECE
+        }
+
+        .row-space {
+            height: 15px;
+        }
+
+        .cnpj {
+            font-size: 15px;
+            text-align: right;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .cnpj-td {
+            vertical-align: top;
+        }
+
+        .img {
+            display: block;
+            margin: 0 0 0px 0;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <table class="ordem" aria-describedby="">
+            <thead>
+                <tr>
+                    <th>
+                        <img class="img" src="@Model.LogoBase64" alt="AGIPREV">
+                    </th>
+                    <th class="cnpj-td">
+                        <p class="cnpj">
+                            @Model.EntityName
+                        </p>
+                        <p class="cnpj">
+                            @Model.EntityDocument?.Replace("-",".")
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <td colspan="2" class="center bold clean-border">@Model.EntityName</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="center bold clean-border">COMPETÊNCIA @Model.Month.GetDescription()/@Model.Year</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="row-space clean-border"></td>
+            </tr>
+            <tbody>
+                <tr>
+                    <td colspan="2" class="center bold grey-background">CÁLCULO PARA CONTRIBUIÇÃO DO PASEP</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="center bold grey-background">I - RECEITAS</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="center bold grey-background">Inc. III, do art. 2º, da Lei n.º 9.715/98</td>
+                </tr>
+                <tr>
+                    <td class="bold">Receitas Correntes (Líquida de Deduções)</td>
+                    <td class="center bold">Valor</td>
+                </tr>
+                @{
+                    foreach (var line in Model.CurrentRevenue)
+                    {
+                        <tr>
+                            <td>@line.Title</td>
+                            <td class="right">@line.Value.FormatValue()</td>
+                        </tr>
+                    }
+                }
+                <tr>
+                    <td class="bold">Sub-Total (a)</td>
+                    <td class="right bold">@Model.TotalCurrentRevenue.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td class="bold">Receita de Capital</td>
+                    <td class="bold"></td>
+                </tr>
+                <tr>
+                    <td>2400000000000000000 - Transferências de Capital</td>
+                    <td class="right">@Model.CapitalTransfers.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td class="bold">Sub-Total (b)</td>
+                    <td class="right bold">@Model.CapitalTransfers.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="bold">TOTAL DA RECEITA I (Sub-total (a) + Sub-total (b))</td>
+                    <td class="right bold">@Model.TotalRevenue.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="center bold grey-background">II - EXCLUSÕES DA RECEITA</td>
+                </tr>
+                <tr>
+                    <td class="bold">Base Legal</td>
+                    <td class="center bold">Valor</td>
+                </tr>
+                <tr>
+                    <td>
+                        Transferências de Convênio, Contrato de repasse ou instrumento congênere com objeto definido (§
+                        7º, do art. 2º, da Lei n.º 9.715/98)
+                    </td>
+                    <td class="right">@Model.AgreementTransfers.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td>
+                        Transferências a outras Entidades de Direito Público Interno (art. 7º, da Lei n.º 9.715/98) -
+                        Tutela Antecipada Processo Nº 5001004-06.2023.4.04.7122/RS
+                    </td>
+                    <td class="right">@Model.TransfersToOtherEntities.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td class="bold">TOTAL DAS EXCLUSÕES DA RECEITA (II)</td>
+                    <td class="right bold">@Model.TotalRevenueExclusions.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="bold grey-background">III - TOTAL RECEITA LÍQUIDA (BASE DE CÁLCULO) (I-II)</td>
+                    <td class="right bold grey-background">@Model.TotalNetIncome.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="bold grey-background">IV - RETENÇÕES DO PASEP NA FONTE</td>
+                    <td class="center bold grey-background">Valor</td>
+                </tr>
+                @{
+                    foreach (var line in Model.PasepWithholdingsAtSource)
+                    {
+                        <tr>
+                            <td>@line.Title</td>
+                            <td class="right">@line.Value.FormatValue()</td>
+                        </tr>
+                    }
+                }
+                <tr>
+                    <td class="bold">IV - TOTAL DAS RETENÇÕES</td>
+                    <td class="bold right">@Model.TotalPasepWithholdingsAtSource.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="bold grey-background">RESUMO</td>
+                    <td class="center bold grey-background">Valor</td>
+                </tr>
+                <tr>
+                    <td>a) Total da Receita Líquida (III)</td>
+                    <td class="right">@Model.TotalNetIncome.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td>b) 1% sobre total das Receitas (a*1%)</td>
+                    <td class="right">@Model.OnePercentTotalNetIncome.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td>c) PASEP retido na Fonte (IV)</td>
+                    <td class="right">@Model.TotalPasepWithholdingsAtSource.FormatValue()</td>
+                </tr>
+                <tr>
+                    <td class="bold grey-background">RESULTADO DO CÁLCULO (b-c)</td>
+                    <td class="right bold grey-background">@Model.CalculationResult.FormatValue()</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+﻿@model AgilleApi.Domain.ViewModel.CourierDataViewModel
+@{
+    Layout = null;
+
+    var devolution = Model.ZipcodeDevolutionResponse;
+    var recipient = Model.ZipcodeRecipientResponse;
+
+	var recipientDistrict = (string.IsNullOrEmpty(recipient.bairro)) ? "" : ", " + recipient.bairro;
+	var devolutionDistrict = (string.IsNullOrEmpty(devolution.bairro)) ? "" : ", " + devolution.bairro;
+}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="utf-8" />
+</head>
+
+<body style="margin: 0;">
+
+<div id="p1" style="overflow: hidden; position: relative; background-color: white; width: 909px; height: 1286px;">
+
+<!-- Begin shared CSS values -->
+<style class="shared-css" type="text/css" >
+.t {
+	transform-origin: bottom left;
+	z-index: 2;
+	position: absolute;
+	white-space: pre;
+	overflow: visible;
+	line-height: 1.5;
+}
+.text-container {
+	white-space: pre;
+}
+</style>
+<!-- End shared CSS values -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_1{left:342px;bottom:1131.4px;letter-spacing:0.08px;word-spacing:0.27px;}
+#t2_1{left:342px;bottom:1116.5px;letter-spacing:0.53px;}
+#t3_1{left:492px;bottom:1113px;letter-spacing:0.66px;}
+#t4_1{left:637px;bottom:1134px;letter-spacing:-0.02px;word-spacing:0.68px;}
+#t5_1{left:206px;bottom:1097px;letter-spacing:0.09px;}
+#t6_1{left:206px;bottom:1087px;letter-spacing:-0.06px;word-spacing:0.71px;}
+#t7_1{left:206px;bottom:1077px;letter-spacing:0.14px;word-spacing:0.51px;}
+
+			#t8_1 {
+				left: 206px;
+				bottom: 1050px;
+				letter-spacing: 0.11px;
+				word-spacing: 0.53px;
+			}
+#t9_1{left:290px;bottom:1017px;letter-spacing:0.03px;word-spacing:0.62px;}
+#ta_1{left:206px;bottom:978px;letter-spacing:0.16px;word-spacing:0.23px;}
+#tb_1{left:206px;bottom:968px;letter-spacing:0.05px;word-spacing:0.59px;}
+#tc_1{left:206px;bottom:958px;letter-spacing:0.21px;word-spacing:0.43px;}
+#td_1{left:206px;bottom:947px;letter-spacing:0.16px;}
+#te_1{left:206px;bottom:937px;letter-spacing:0.12px;word-spacing:0.52px;}
+#tf_1{left:637px;bottom:1100px;letter-spacing:0.01px;word-spacing:0.65px;}
+#tg_1{left:688px;bottom:1063px;letter-spacing:0.09px;}
+#th_1{left:657px;bottom:1053px;letter-spacing:0.08px;word-spacing:0.58px;}
+#ti_1{left:262px;bottom:888px;letter-spacing:-0.01px;word-spacing:0.4px;}
+#tj_1{left:454px;bottom:877px;letter-spacing:-0.03px;}
+#tk_1{left:213px;bottom:857px;letter-spacing:0.15px;word-spacing:0.48px;}
+#tl_1{left:213px;bottom:836px;letter-spacing:0.15px;word-spacing:0.48px;}
+#tm_1{left:213px;bottom:816px;letter-spacing:0.15px;word-spacing:0.48px;}
+#tn_1{left:361px;bottom:857px;letter-spacing:0.14px;word-spacing:0.49px;}
+#to_1{left:361px;bottom:836px;letter-spacing:0.14px;word-spacing:0.49px;}
+#tp_1{left:361px;bottom:816px;letter-spacing:0.14px;word-spacing:0.49px;}
+#tq_1{left:489px;bottom:856px;letter-spacing:0.07px;word-spacing:-0.53px;}
+#tr_1{left:637px;bottom:854px;letter-spacing:0.11px;word-spacing:0.54px;}
+#ts_1{left:637px;bottom:844px;letter-spacing:0.24px;}
+#tt_1{left:462px;bottom:842px;}
+#tu_1{left:462px;bottom:828px;}
+#tv_1{left:462px;bottom:814px;}
+#tw_1{left:462px;bottom:801px;}
+#tx_1{left:462px;bottom:787px;}
+#ty_1{left:477px;bottom:844px;letter-spacing:-0.08px;}
+#tz_1{left:563px;bottom:841px;}
+#t10_1{left:563px;bottom:827px;}
+#t11_1{left:563px;bottom:813px;}
+#t12_1{left:563px;bottom:799px;}
+#t13_1{left:576px;bottom:841px;letter-spacing:-0.09px;}
+#t14_1{left:477px;bottom:829px;letter-spacing:-0.22px;}
+#t15_1{left:477px;bottom:818px;letter-spacing:-0.08px;}
+#t16_1{left:576px;bottom:827px;letter-spacing:-0.19px;word-spacing:-0.03px;}
+#t17_1{left:477px;bottom:808px;letter-spacing:-0.11px;word-spacing:-0.12px;}
+#t18_1{left:576px;bottom:807px;letter-spacing:-0.02px;}
+#t19_1{left:477px;bottom:794px;letter-spacing:-0.15px;}
+#t1a_1{left:576px;bottom:793px;letter-spacing:0.08px;}
+#t1b_1{left:477px;bottom:779px;letter-spacing:-0.09px;}
+#t1c_1{left:204px;bottom:761px;letter-spacing:0.04px;word-spacing:0.61px;}
+#t1d_1{left:637px;bottom:761px;letter-spacing:0.06px;word-spacing:0.59px;}
+#t1e_1{left:204px;bottom:734px;letter-spacing:-0.01px;word-spacing:0.67px;}
+#t1f_1{left:637px;bottom:734px;letter-spacing:0.07px;word-spacing:0.58px;}
+#t1g_1{left:112px;bottom:920px;letter-spacing:0.13px;word-spacing:0.26px;}
+#t1h_1{left:44px;bottom:17px;letter-spacing:-0.41px;word-spacing:0.53px;}
+#t1i_1{left:705px;bottom:17px;letter-spacing:0.01px;word-spacing:0.13px;}
+
+.s1{font-size:13px;font-family:DejaVuSans-Bold_z;color:#000;}
+.s2{font-size:26px;font-family:DejaVuSans-Bold_z;color:#000;}
+.s3{font-size:9px;font-family:DejaVuSans_u;color:#000;}
+.s4{font-size:9px;font-family:DejaVuSans-Bold_z;color:#000;}
+.s5{font-size:8px;font-family:DejaVuSans-Bold_z;color:#000;}
+.s6{font-size:8px;font-family:DejaVuSans_u;color:#000;}
+.s7{font-size:18px;font-family:DejaVuSans_u;color:#000;}
+.t.m0_1{-webkit-transform:matrix(0.957,0,-0.29,0.96,0,0);}
+.t.m1_1{-webkit-transform:matrix(0,-1,1,0,0,0);}
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin embedded font definitions -->
+<style id="fonts1" type="text/css" >
+    
+</style>
+<!-- End embedded font definitions -->
+
+<!-- Begin page background -->
+<div id="pg1Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg1" style="-webkit-user-select: none;"><svg id="pdf1" width="909" height="1286" viewBox="0 0 909 1286" style="width:909px; height:1286px; -moz-transform:scale(1); z-index: 0; isolation: isolate;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<clipPath id="c0"><path d="M199.4,166.1V137.5H335.7v28.6Z"/></clipPath>
+<style type="text/css"><![CDATA[
+.g0{
+}
+.g1{
+fill: none;
+stroke: #000000;
+stroke-width: 1.145;
+stroke-linecap: butt;
+stroke-linejoin: bevel;
+stroke-dasharray: 2,2;
+}
+.g2{
+fill: #00C0F3;
+}
+.g3{
+fill: #FFD400;
+}
+.g4{
+fill: #00416B;
+}
+]]></style>
+</defs>
+<path d="M153.5,135.2H786v2.3H153.5v-2.3Z" class="g0"/>
+<path d="M153.5,558H786v2.3H153.5V558Z" class="g0"/>
+<path d="M153.5,135.2h2.3V560.3h-2.3V135.2Z" class="g0"/>
+<path d="M783.8,135.2H786V560.3h-2.2V135.2Z" class="g0"/>
+<path d="M199.4,169.6H343.8v2.3H199.4v-2.3Z" class="g0"/>
+<path d="M343.8,169.6H449.2v2.3H343.8v-2.3Z" class="g0"/>
+<path d="M449.2,169.6H576.4v2.3H449.2v-2.3Z" class="g0"/>
+<path d="M576.4,169.6h56.1v2.3H576.4v-2.3Z" class="g0"/>
+<path d="M632.5,169.6H783.8v2.3H632.5v-2.3Z" class="g0"/>
+<path d="M632.5,137.5h2.3v34.4h-2.3V137.5Z" class="g0"/>
+<path d="M199.4,378.1H632.5v2.3H199.4v-2.3Z" class="g0"/>
+<path d="M199.4,171.9h2.3V380.4h-2.3V171.9Z" class="g0"/>
+<path d="M632.5,206.3H783.8v2.2H632.5v-2.2Z" class="g0"/>
+<path d="M632.5,171.9h2.3v36.6h-2.3V171.9Z" class="g0"/>
+<path d="M632.5,378.1H783.8v2.3H632.5v-2.3Z" class="g0"/>
+<path d="M632.5,208.5h2.3V380.4h-2.3V208.5Z" class="g0"/>
+<path d="M199.4,380.4h2.3v36.7h-2.3V380.4Z" class="g0"/>
+<path d="M449.2,414.8H783.8v2.3H449.2v-2.3Z" class="g0"/>
+<path d="M449.2,380.4h2.3v36.7h-2.3V380.4Z" class="g0"/>
+<path d="M199.4,417.1h2.3v76.8h-2.3V417.1Z" class="g0"/>
+<path d="M449.2,417.1h2.3v11.4h-2.3V417.1Z" class="g0"/>
+<path d="M632.5,508.8H783.8V511H632.5v-2.2Z" class="g0"/>
+<path d="M632.5,417.1h2.3V511h-2.3V417.1Z" class="g0"/>
+<path d="M449.2,508.8h27.5V511H449.2v-2.2Z" class="g0"/>
+<path d="M449.2,428.5h2.3V511h-2.3V428.5Z" class="g0"/>
+<path d="M558,508.8h18.4V511H558v-2.2Z" class="g0"/>
+<path d="M199.4,508.8H449.2V511H199.4v-2.2Z" class="g0"/>
+<path d="M199.4,493.9h2.3V511h-2.3V493.9Z" class="g0"/>
+<path d="M476.7,508.8H558V511H476.7v-2.2Z" class="g0"/>
+<path d="M576.4,508.8h56.1V511H576.4v-2.2Z" class="g0"/>
+<path d="M199.4,536.3H632.5v2.2H199.4v-2.2Z" class="g0"/>
+<path d="M199.4,511h2.3v27.5h-2.3V511Z" class="g0"/>
+<path d="M632.5,536.3H783.8v2.2H632.5v-2.2Z" class="g0"/>
+<path d="M632.5,511h2.3v27.5h-2.3V511Z" class="g0"/>
+<path d="M199.4,538.5h2.3V558h-2.3V538.5Z" class="g0"/>
+<path d="M632.5,538.5h2.3V558h-2.3V538.5Z" class="g0"/>
+<g clip-path="url(#c0)">
+<image preserveAspectRatio="none" x="223" y="156" width="12" height="8" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAICAYAAADN5B7xAAABHElEQVR42mNgQALeuuzc2/KEzFZkCVbyczJyM+ADHgYMTJPjODy2Fohs31YicntuKn+kuiSLME4NSTac1muzBOdtKxD9uLNU5Ne+KqFTk5P4PM1VWXkxTdfgUukPFurdlCX2GKjh/84ykf/7qoV/H2gUWjkpjdfB0YCNFa7YU41bYFKgaMW6FPGrQA3/kTT8P9go9P5op9Dk0mBuQ7iGZeGS3itjJU6vTRH7jalB+P/RDqF7fSk8LfrKLDJQDeJdq+LEr61LEfsA1PABqOEDUMMHoIYPQA0fgBo+nOgTOriwlDdBXZaJhWFFmJjFylixvjXJous2Zops2JovsmFnqfCGPdVCGw40CG040i644USvwLozk/naLs3mFgcAs8947bAvY0kAAAAASUVORK5CYII="/>
+<image preserveAspectRatio="none" x="217" y="148" width="18" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAQCAMAAAAs2N9uAAACGVBMVEUAAABYRwLluAbougbqvwbrwAbtxATvxwTyywL0zgL20gH41QD61wD/3ABbSAPHnwfktwjmugjovQfrwAbtwgXuxgXxyQTzzQT20QP41ALYuAEvKQBcRwS7kgjgsQrjtArltwnnugjqvgfswQbtxAXwxwTyygT1zQP40wHTtwBXQwW0iwncqwrfrgvhsQrjtQnluAjouwjuxAXwyAXyygPOrgFdUgBKOAmziAzXpQzaqQzdrAvfrwrhswnjtgjmuQjovAfqvwbswgXuxQXHpgJhUgCsgBLTnhDWog3Ypg3bqQzfsArktgjmuQfqvwbHpARkUwEqIgG2hwzTnQ7VoA3Xow3apwzcqgverQvgsArjtAnltgjnugfrtgV3WQLluQbUnw7Smw/Tng7VoQ7YpQ3aqAzcqwvergrhsgrjtAnluAjrkQN4PAD0zwLjtAnUnw7Smw7Ung7Wog7ZpQ3dqwvgsQjksgtjSgUIBAD9wgDxxAPgrwrVoA7SnA/UoA7drQvfsAldSQQRDQFPOwDevwHtwwXcqwvTng/WoQ7XpA3apwzbqwtfSgQTDwFcUgDRsQHpvQfZpwzUng/VoQ7Qnw1mTwUQDAFnWQDKqQLktwjWog3SnA/Tng7Klw8MCQGaiwDy0APhsgnUnw7HlA+MZQwIBgF+fgDi0AHuxgXdrQq0iAweHgACAgB/cAD51wHpvgbSpgqgoAAJCQCEBbdFAAAAs3RSTlMAHVl7fHx8fHx8fHtqFjeZ3+bm5ubm5ubm0H4EIojo///////////yry0PcdX////////6wE8DA1PD+///////////020OL7Lz///////nhiASmOr///////////agNmLl///////////9xUYBeen////////pVQwAGq/x////+3MbAgFBwvn////5oCkFCWfQ/v/3xjoIGoXg//rXXwYznfDqmAkBAUmzw1QBAAQ2fGICAKmoqa8AAADwSURBVHjaY2AAAUYmZhZWNnYOTi5uHl6wCB+/gKCQsIiomLiEpJQ0SERGVk5eQVFJWUVVTV1DEySipa2jq6dvYKikbGRsYmoGFDG3sLSytrG1s3dwdHJ2cQUpcnP38PSy9rb18XXw8w8AiQQGBYeEhoVHREZFx8TGgW2LT0hMSk5JTUvPyMzKzgEL5eblFxQWFaeW2JSWlVeAhSqrqmtq60I9veobGpvAIgzNLa1the0dnV3dPb0MUNDXP2Fi7aTJU6ZOY4CD6TNmzpo9Z+48BiQwf8HCRYuXLEUWWrZ8xcpVq9cgCzGsXbd+w8ZNMB4A3t5BsB5LlLwAAAAASUVORK5CYII="/>
+<image preserveAspectRatio="none" x="229" y="140" width="12" height="9" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAJCAYAAAAGuM1UAAABG0lEQVR42n3Qz0oCURiH4dcMgoLGholQopB0TMfULKk0ayFF0kySMZpUGIpRq+6hWwhqLwRdQXQPbgsOLdu0aBG0CgqmU0Z/yHrhtzrfsznwVtzsZ3FPIy03VZOrfM1Y19BNjeE1BWz3+z0xq0G2cUGmLpjZFaS2BcmKYLIsmNgQRAoC3WoxunrWBkYxSGb/hEztntmqQ2rHkcAhUXIkcDAKDuPmI3q+1QYev5uolSVdb0rw9AtECi+EzCuC+QM+GxjpJbxsMVe97ABuGMsdoQY1fqR4NUK5TQmuJXj+AHcEcseogTAdU4a8zG8dyh+6leCBWKmJL7nAn6mqi6UVD9PlU+L2OVE7jzfZxb9197hIWIPEiz5Uf9/3p1ehAU/R9Wg+nwAAAABJRU5ErkJggg=="/>
+<image preserveAspectRatio="none" x="229" y="140" width="19" height="17" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAARCAMAAAAIRmf1AAACVVBMVEUAAAAANkwAnN4AjdQAExwAOk8AqOQAmtsAdq8AIDEAO04ArOUAqeYAltcAbKMAKUAAMj4Ae58AqOEAregApOIAk9YAaZ8ALUcAUWkAo9YApd0AquQAq+YAoOAAkNQAbaUANE8AIi4AZ4sAnNMAodkApt8Aq+QAquUAnt0Ak9cAbaMAGiQAapEAk8kAmM8AndUAotoAp+AArOYAqeUAnNsAdasAHy8AAgMADhMAcJsAir4Aj8QAlMoAmc8AntUAo9sAqOEAreYAqeQAmdkAh80AEBYAdqYAgLMAhroAi78AkMUAlcsAmtEAn9cApNwAqeIAqOQAltcAICAAcXcAd6cAfbAAgrYAh7sAjMEAkccAlswAm9IAoNgApd4AquMArOYApuMAICwAcZkAdKUAeasAfrEAg7YAiLwAjcIAkscAl80AnNMApd4AirkAJzUAHCoAS28AapoAcKEAdacAeq0Af7IAhLcAib0AjsMAk8kAmM4AnNQAo9sAgawAGyoARGYAYpEAZ5YAbJwAcaIAdagAgLIAhLgAib4AjsQAk8kAmM4AfagAPVEAFyIAP2AAWIYAXowAY5IAaJgAbZ4AcaMAdqgAfK4AgLQAhboAir8Aj8UAcpwANkkAN1UATnkAVYIAWogAX44AZJMAaZkAbp8Ac6QAeKoAfa8AgrQAh7oAbpgALT4ANlgAS3cAUX0AVoMAW4gAYI4AZZUAapkAbp8Ac6UAd6oAfqwAb5oAICwAMlMARnEATngAVX8AVoAAXokAX5IAZpQAapkAa6EAcaQAe5oAEBRkNqyoAAAAx3RSTlMABQ4GABFOyWsbEVj72WIXAzem///DVwwqiO3///mtRgIadtn/////7Z4tC2PH////////4Y0WAAI/v/3/////////3W4DFL31//////////nkARik7f7//////////95zHXfr/P/////////ikRcWYNn+///////////uoS8KUbz///////////qwSQMCQKf4////////////xloNJ5ns///////////822YaZbbW1tbW1tbW1tXLbhwRFxgYGBgYGBgXFAcB7fKMzQAAAP1JREFUeNpjYIADRiZmFgY0wMrGzsGJJsbFzcPLx48iJCAoJCwiKiaOLCYhKSUtIysnr4AQUlRSVlFVU9fQ1IILaevo6ukbGBoZm5iaQUTMLSytrG1s7ewdHJ2cXSBirm7uHp5e3j6+fv5GAYFgoaDgkNCw8IjIqOiY2Lj4BLBYYlJySmpaekZmVnZMTm4eSCi/oLCouKS0rLyisqq6phYkVFff0NjU3FLS2tbe0dnV3QMU6u3rnzBx0uQpU6dNnzFz1uw5IGVz581fsHDR4iVLly1fsXLVarAFa9auW79h46bNW7Zu275jJ8Rtu3bv2btv/4GDhw4fOXoMLAIASMZN+DFhfgoAAAAASUVORK5CYII="/>
+</g>
+<path d="M240.7,142.9c.1,-.2,.2,-.5,.2,-.8c0,-.3,-.1,-.6,-.3,-.9c-.3,-.2,-.6,-.3,-.9,-.3h-.4c.7,0,1.3,.5,1.3,1.2c0,.3,-.1,.6,-.3,.8l-4.2,5.5l-5.9,7.6l10.5,-13.1Z" class="g2"/>
+<path d="M223.8,161.5c-.2,.2,-.3,.5,-.3,.8c0,.6,.6,1.2,1.3,1.2h.3c-.3,0,-.7,-.1,-.9,-.4c-.2,-.2,-.4,-.5,-.4,-.8c0,-.3,.1,-.6,.3,-.8l4.3,-5.5l5.8,-7.6l-10.4,13.1Z" class="g3"/>
+<path d="M324.9,156.5c-.4,-.2,-1,-.3,-1.6,-.5c-.9,-.2,-1.7,-.3,-2,-.7c-.2,-.5,-.1,-1,.3,-1.2c.8,-.6,2,-.4,2.7,-.1c.1,.1,.5,.3,.5,.3c.2,.2,.5,.1,.6,-.1c0,0,1.3,-1.6,1.3,-1.6l-.2,-.1c-.2,-.1,-.3,-.3,-.5,-.4c-.4,-.2,-1.5,-.8,-3.1,-.8h-.1c-3.6,.1,-4.1,2.6,-4.1,3.5c0,1.3,.7,2.3,1.8,2.9c.8,.5,2.4,.7,3.2,1c.4,.1,.7,.4,.8,.7c.1,.1,.1,.2,.1,.4c0,.4,-.3,.9,-.9,1.2c-.8,.2,-2,.1,-3.1,-.8c0,0,-.2,-.1,-.2,-.1c0,0,-.1,0,-.2,0c-.1,0,-.2,.1,-.3,.2l-1.2,1.5c0,0,.4,.4,.5,.5c.7,.5,1.9,1.2,3.6,1.2c3.4,0,4.2,-2.4,4.2,-3.8c0,-1.3,-.8,-2.6,-2.1,-3.2Z" class="g4"/>
+<path d="M286.8,151.5c-.6,0,-1.1,.1,-1.6,.2c-.7,.3,-1.3,.7,-1.8,1.3c-.8,1,-.7,2.2,-.7,2.2v8.3h2.2c.1,0,.2,-.1,.2,-.3v-7.9c0,-.1,.1,-.7,.4,-.9c.2,-.3,.5,-.4,.9,-.4c.2,-.1,.5,-.1,.8,0c0,0,.1,0,.1,0c.1,0,.3,-.1,.4,-.2l1.1,-2c-.6,-.2,-1.3,-.3,-2,-.3Z" class="g4"/>
+<path d="M280.2,151.5c-.5,0,-1,.1,-1.5,.2c-.8,.3,-1.4,.7,-1.9,1.3c-.7,1,-.7,2.2,-.7,2.2v8.3h2.2c.1,0,.3,-.1,.3,-.3v-7.9c0,-.1,0,-.7,.3,-.9c.2,-.3,.6,-.4,.9,-.4c.3,-.1,.6,-.1,.9,0c.2,0,.3,-.1,.4,-.2l1.1,-2c-.6,-.2,-1.2,-.3,-2,-.3Z" class="g4"/>
+<path d="M260.7,160.4c-.1,-.1,-.2,-.2,-.4,-.2c0,0,-.1,.1,-.2,.1c-.8,.5,-1.6,.7,-2.6,.7c-2.8,0,-5,-2.3,-5,-5c0,-2.8,2.2,-5.1,5,-5.1c1,0,1.8,.3,2.6,.7c.1,.1,.2,.1,.2,.1c.2,0,.3,-.1,.4,-.2l1.3,-1.6c-1.3,-1,-2.9,-1.5,-4.5,-1.5c-4.1,0,-7.5,3.4,-7.5,7.6c0,4.1,3.4,7.5,7.5,7.5c1.7,0,3.2,-.5,4.5,-1.5l-1.3,-1.6Z" class="g4"/>
+<path d="M294.5,153.7c1.7,0,3.1,1.1,3.5,2.5h-7c.5,-1.4,1.9,-2.5,3.5,-2.5Zm0,-2.4c-3.3,0,-6.1,2.7,-6.1,6.1c0,3.3,2.8,6.1,6.1,6.1h.2c1.3,0,2.4,-.2,3.8,-1.1l.2,-.1c0,0,-1.2,-1.7,-1.2,-1.7c-.1,-.1,-.2,-.2,-.4,-.2c-.1,0,-.1,.1,-.2,.1c-.3,.2,-1.3,.6,-2.4,.6c-1.6,0,-2.9,-1,-3.5,-2.5h9.3c.2,0,.3,-.1,.3,-.2v-.7c0,-.1,0,-.2,0,-.3c0,-3.4,-2.7,-6.1,-6.1,-6.1Z" class="g4"/>
+<path d="M302.3,163.5c-.1,0,-.3,-.1,-.3,-.2V152c0,-.2,.2,-.3,.3,-.3h2c0,0,.1,0,.1,.1c.1,0,.1,.1,.1,.2v11.3c0,.1,-.1,.2,-.2,.2h-2Z" class="g4"/>
+<path d="M268.5,153.7c-2,0,-3.6,1.6,-3.6,3.6c0,2.1,1.6,3.7,3.6,3.7c2.1,0,3.7,-1.6,3.7,-3.7c0,-2,-1.6,-3.6,-3.7,-3.6Zm0,9.8c-3.4,0,-6.1,-2.8,-6.1,-6.2c0,-3.4,2.7,-6.1,6.1,-6.1c3.4,0,6.2,2.7,6.2,6.1c0,3.4,-2.8,6.2,-6.2,6.2Z" class="g4"/>
+<path d="M311.8,153.8c-2,0,-3.6,1.6,-3.6,3.6c0,2,1.6,3.6,3.6,3.6c2.1,0,3.7,-1.6,3.7,-3.6c0,-2,-1.6,-3.6,-3.7,-3.6Zm0,9.7c-3.3,0,-6,-2.7,-6,-6.1c0,-3.4,2.7,-6.1,6,-6.1c3.4,0,6.1,2.7,6.1,6.1c0,3.4,-2.7,6.1,-6.1,6.1Z" class="g4"/>
+<path d="M458.3,430.8h14.9V432H458.3v-1.2Z" class="g0"/>
+<path d="M458.3,442.3h14.9v1.1H458.3v-1.1Z" class="g0"/>
+<path d="M458.3,430.8h1.2v12.6h-1.2V430.8Z" class="g0"/>
+<path d="M472.1,430.8h1.1v12.6h-1.1V430.8Z" class="g0"/>
+<path d="M458.3,444.6h14.9v1.1H458.3v-1.1Z" class="g0"/>
+<path d="M458.3,456h14.9v1.2H458.3V456Z" class="g0"/>
+<path d="M458.3,444.6h1.2v12.6h-1.2V444.6Z" class="g0"/>
+<path d="M472.1,444.6h1.1v12.6h-1.1V444.6Z" class="g0"/>
+<path d="M458.3,458.3h14.9v1.2H458.3v-1.2Z" class="g0"/>
+<path d="M458.3,469.8h14.9v1.1H458.3v-1.1Z" class="g0"/>
+<path d="M458.3,458.3h1.2v12.6h-1.2V458.3Z" class="g0"/>
+<path d="M472.1,458.3h1.1v12.6h-1.1V458.3Z" class="g0"/>
+<path d="M458.3,472.1h14.9v1.1H458.3v-1.1Z" class="g0"/>
+<path d="M458.3,483.5h14.9v1.2H458.3v-1.2Z" class="g0"/>
+<path d="M458.3,472.1h1.2v12.6h-1.2V472.1Z" class="g0"/>
+<path d="M472.1,472.1h1.1v12.6h-1.1V472.1Z" class="g0"/>
+<path d="M458.3,485.8h14.9V487H458.3v-1.2Z" class="g0"/>
+<path d="M458.3,497.3h14.9v1.1H458.3v-1.1Z" class="g0"/>
+<path d="M458.3,485.8h1.2v12.6h-1.2V485.8Z" class="g0"/>
+<path d="M472.1,485.8h1.1v12.6h-1.1V485.8Z" class="g0"/>
+<path d="M559.2,432h14.9v1.1H559.2V432Z" class="g0"/>
+<path d="M559.2,443.4h14.9v1.2H559.2v-1.2Z" class="g0"/>
+<path d="M559.2,432h1.1v12.6h-1.1V432Z" class="g0"/>
+<path d="M572.9,432h1.2v12.6h-1.2V432Z" class="g0"/>
+<path d="M559.2,445.7h14.9v1.2H559.2v-1.2Z" class="g0"/>
+<path d="M559.2,457.2h14.9v1.1H559.2v-1.1Z" class="g0"/>
+<path d="M559.2,445.7h1.1v12.6h-1.1V445.7Z" class="g0"/>
+<path d="M572.9,445.7h1.2v12.6h-1.2V445.7Z" class="g0"/>
+<path d="M559.2,459.5h14.9v1.1H559.2v-1.1Z" class="g0"/>
+<path d="M559.2,470.9h14.9v1.2H559.2v-1.2Z" class="g0"/>
+<path d="M559.2,459.5h1.1v12.6h-1.1V459.5Z" class="g0"/>
+<path d="M572.9,459.5h1.2v12.6h-1.2V459.5Z" class="g0"/>
+<path d="M559.2,473.2h14.9v1.2H559.2v-1.2Z" class="g0"/>
+<path d="M559.2,484.7h14.9v1.1H559.2v-1.1Z" class="g0"/>
+<path d="M559.2,473.2h1.1v12.6h-1.1V473.2Z" class="g0"/>
+<path d="M572.9,473.2h1.2v12.6h-1.2V473.2Z" class="g0"/>
+<path d="M190.2,137.5h1.2v1.1h-1.2v-1.1Z" class="g0"/>
+<path d="M190.2,556.9h1.2V558h-1.2v-1.1Z" class="g0"/>
+<path d="M190.8,138.6V556.9" class="g1"/>
+</svg></div>
+<!-- End page background -->
+
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div class="text-container"><span id="t1_1" class="t m0_1 s1">AVISO DE </span>
+<span id="t2_1" class="t m0_1 s1">RECEBIMENTO </span>
+<span id="t3_1" class="t s2">AR </span>
+<span id="t4_1" class="t s3">DATA DE POSTAGEM </span>
+<span id="t5_1" class="t s4">DESTINATÁRIO: </span>
+<span id="t6_1" class="t s3">@Model.RecipientInfo.Name </span>
+<span id="t7_1" class="t s3">@recipient.end, @Model.Recipient.Number@recipientDistrict, @Model.Recipient.Complement </span>
+<span id="t8_1" class="t s3">@Model.Recipient.Description <br />@recipient.cep, @recipient.cidade - @recipient.uf </span>
+<span id="t9_1" class="t s3">@Model.EdicatteWithChecker </span>
+<span id="ta_1" class="t s4">ENDEREÇO PARA DEVOLUÇÃO DO AR: </span>
+<span id="tb_1" class="t s3">@Model.SenderName </span>
+<span id="tc_1" class="t s3">@devolution.end, @Model.Devolution.Number@devolutionDistrict, @Model.Devolution.Complement </span>
+<span id="td_1" class="t s3">@Model.Devolution.Description</span>
+<span id="te_1" class="t s3">@devolution.cep,  @devolution.cidade - @devolution.uf</span>
+<span id="tf_1" class="t s3">UNIDADE DE POSTAGEM </span>
+<span id="tg_1" class="t s3">CARIMBO </span>
+<span id="th_1" class="t s3">UNIDADE DE ENTREGA </span>
+<span id="ti_1" class="t s4">TENTATIVAS DE ENTREGA </span>
+<span id="tj_1" class="t s3">OBSERVAÇÃO <br />@Model.AdditionalInformation</span>
+<span id="tk_1" class="t s3">1º ________/________/________ </span>
+<span id="tl_1" class="t s3">2º ________/________/________ </span>
+<span id="tm_1" class="t s3">3º ________/________/________ </span>
+<span id="tn_1" class="t s3">______ : ______h </span>
+<span id="to_1" class="t s3">______ : ______h </span>
+<span id="tp_1" class="t s3">______ : ______h </span>
+<span id="tq_1" class="t s5">MOTIVO DE DEVOLUÇÃO </span><span id="tr_1" class="t s3">RUBRICA E MATRÍCULA DO </span>
+<span id="ts_1" class="t s3">CARTEIRO </span>
+<span id="tt_1" class="t s4">1 </span>
+<span id="tu_1" class="t s4">2 </span>
+<span id="tv_1" class="t s4">3 </span>
+<span id="tw_1" class="t s4">4 </span>
+<span id="tx_1" class="t s4">5 </span>
+<span id="ty_1" class="t s6">Mudou-se </span>
+<span id="tz_1" class="t s4">6 </span>
+<span id="t10_1" class="t s4">7 </span>
+<span id="t11_1" class="t s4">8 </span>
+<span id="t12_1" class="t s4">9 </span>
+<span id="t13_1" class="t s6">Falecido </span>
+<span id="t14_1" class="t s6">Endereço </span>
+<span id="t15_1" class="t s6">insuficiente </span>
+<span id="t16_1" class="t s6">Não procurado </span>
+<span id="t17_1" class="t s6">Não existe o número </span><span id="t18_1" class="t s6">Ausente </span>
+<span id="t19_1" class="t s6">Desconhecido </span><span id="t1a_1" class="t s6">Outros </span>
+<span id="t1b_1" class="t s6">Recusado </span>
+<span id="t1c_1" class="t s3">ASSINATURA DO RECEBEDOR </span><span id="t1d_1" class="t s3">DATA DE ENTREGA </span>
+<span id="t1e_1" class="t s3">NOME LEGÍVEL DO RECEBEDOR </span><span id="t1f_1" class="t s3">Nº DOC. DE IDENTIDADE </span>
+<span id="t1g_1" class="t m1_1 s4">(ÁREA DE COLA NO VERSO) </span>
+<!-- End text definitions -->
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+    "menu": [
+        {
+            "url": "home",
+            "name": "Início",
+            "icon": "circle",
+            "slug": "dashboard-home"
+        },
+        {
+            "navheader": "Conversores",
+            "slug": ""
+        },
+        {
+            "url": "converters/imoveis/imoveis-file-uploader",
+            "name": "Imóveis",
+            "icon": "circle",
+            "slug": "imoveis-file-uploader"
+        },
+        {
+            "url": "converters/ditr/ditr-file-uploader",
+            "name": "DITR",
+            "icon": "circle",
+            "slug": "ditr-file-uploader"
+        }
+
+    ]
+}

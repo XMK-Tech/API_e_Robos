@@ -1,0 +1,177 @@
+﻿@*@model ItoApi.Dtos.PreventiveOrder
+
+@{
+   Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta ToName="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>GLOBAL TRADING PLATFORM</h1>
+
+    <h2>CONTRACT FOR THE INTERNATIONAL COMMERCIAL SALE OF GOODS</h2>
+
+    <h2>PARTIES:</h2>
+
+    <h3>Seller</h3>
+
+    <p>Name @Model.SellerCorporateName</p>
+    <p>Legal form (e.g. limited liability company) @Model.SellerLegalForm</p>
+    <p>Country of incorporation and (if appropriate) trade register number:
+			 @Model.SellerCountryName </p>
+
+    <p>
+      Address (address of place of business of the seller, phone, fax, e-mail)
+    </p>
+
+    <p>LegalForm: @Model.SellerLegalForm</p>
+    <p>Address: @Model.SellerAddress</p>
+    <p>Fax: @Model.SellerFax </p>
+    <p>ZipCode: @Model.SellerZipCode</p>
+    <p>State: @Model.SellerState</p>
+    <p>
+      Represented by (surname and first name, address, position, legal title of
+      representation)
+    </p>
+
+    <p>Data from class Representative:</p>
+
+    <p>Buyer Name (name of company)</p>
+    <p>CorporateName: @Model.BuyerCorporateName</p>
+
+    <p>Legal form (e.g. limited liability company)</p>
+    <p>LegalForm: @Model.BuyerCountryName</p>
+
+    <p>Country of incorporation and (if appropriate) trade register number</p>
+    <p>CountryName from Country: @Model.BuyerCountryName</p>
+
+    <p>
+      Address (address of place of business of the buyer, phone, fax, e-mail)
+    </p>
+
+    <p>LegalForm:@Model.BuyerCountryName</p>
+    <p>Address: @Model.BuyerAddress</p>
+    <p>Fax: @Model.BuyerFax</p>
+    <p>ZipCode: @Model.BuyerZipCode</p>
+    <p>State: @Model.BuyerState</p>
+
+    <p>
+      Represented by (surname and first name, address, position, legal title of
+      representation)
+    </p>
+
+    <p>
+      Data from class Representative
+    </p>
+
+    <p>
+      Representative
+    </p>
+
+		<p>Hereinafter: “the Parties”</p>
+		<p>1. Goods </p>
+		<p>1.1 Subject to the terms agreed in this contract, the Seller shall deliver the following good(s) (hereinafter: “the Goods”) to the Buyer. </p>
+		<p>1.2 Description of the Goods (details necessary to define/specify the Goods which are the object of the sale, including required quality, description, certificates, country of origin, other details). </p>
+		<p>1.3 Quantity of the Goods (including unit of measurement).</p>
+		<p>1.3.1 Total quantity: @Model.BidQuantityDescription</p>
+		<p>1.3.2 Per delivery instalment @Model.OfferDelivery (if appropriate)</p>
+		<p>1.3.3 Tolerance percentage:</p>
+		<p>1.4 Inspection of the Goods (where an inspection is required, specify, as appropriate, details of organization responsible for inspecting quality and/or quantity, place and date and/or period of inspection, responsibility for inspection costs).</p>
+		<p>1.5 Packaging: @Model.CommodityPacking</p>
+		<p>1.6 Other specification: @Model.CommoditySpecifications</p>
+
+		<p>2. Delivery </p>
+		<p>2.1 Applicable International Chamber of Commerce (hereinafter: ICC) Incoterms (by reference to most recent version of the Incoterms at date of conclusion of the contract). </p>
+		<p>2.2 Place of delivery: @Model.DestinationPear - @Model.DestinationCountry. </p>
+		<p>2.3 Date or period of delivery @Model.OfferScheduleOfDelivery </p>
+		<p>2.4 Carrier (name and address, where applicable) </p>
+		<p>2.5 Other delivery terms @Model.DeliveryTerms. </p>
+
+		<p>3. Price</p>
+		<p>3.1 Total price:  @( Model.BidPriceValue * Model.BidQuantityValue) </p>
+		<p>3.2 Price per unit of measurement (if appropriate): @Model.OfferPriceDescription </p>
+		<p>3.2 Price per unit of measurement (if appropriate): @Model.OfferPriceDescription </p>
+		<p>3.3 Amount in numbers: @( Model.BidPriceValue * @Model.BidQuantityValue)</p>
+		<p>3.4 Amount in letters: @( Model.BidPriceValue * @Model.BidQuantityValue) por extenso</p>
+		<p>3.5 Currency Dollar</p>
+		<p>3.6 Method for determining the price (if appropriate)</p>
+		<p>3.6 Method for determining the price (if appropriate)</p>
+		<p>4.1 Means of payment (e.g. cash, cheque, bank draft, transfer) @Model.OfferPaymentMeans</p>
+		<p>4.2 Details of Seller’s bank account (if appropriate)</p>
+		<p>4.3 Time for payment @Model.OfferPaymentTime</p>
+		<p>The Parties may choose a payment arrangement among the possibilities set out below, in which case they should specify the arrangement chosen and provide the corresponding details:
+			<p>Payment in advance @Model.OfferPaymentAdvance </p>
+			<p>Payment by documentary collection @Model.OfferPaymentDocumentary </p>
+			<p>Payment by irrevocable documentary credit @Model.OfferPaymentIrrevocable</p>
+			<p>Payment backed by bank guarantee @Model.OfferPaymentBacked</p>
+			<p>Other payment arrangements @Model.OfferPaymentArrangements</p>
+		</p>
+		<p>5.Documents</p>
+		<p>5.1 The Seller shall make available to the Buyer (or shall present to the bank specified by the Buyer) the following documents (tick corresponding boxes and indicate, as appropriate, the number of copies to be provided):</p>
+		<p>Commercial invoice</p>
+		<p>The following transport documents (specify any detailed requirements).</p>
+		<p>Insurance documents</p>
+		<p>Certificate of origin</p>
+		<p>Certificate of inspection</p>
+		<p>Customs documents</p>
+		<p>Other documents</p>
+
+
+		<p>5.2 In addition, the Seller shall make available to the Buyer the documents indicated in the ICC Incoterms the Parties have selected under Article 2 of this contract. </p>
+		<p>6. Non-performance of the Buyer’s obligation to pay the price at the agreed time </p>
+		<p>6.1 If the Buyer fails to pay the price at the agreed time, the Seller shall fix to the Buyer an additional period of time of (specify the length) for performance of payment. If the Buyer fails to pay the price at the expiration of the additional period, the Seller may declare this contract avoided in accordance with Article 10 of this contract. </p>
+		<p>6.2  If the Buyer fails to pay the price at the agreed time, the Seller shall in any event be entitled, without limiting any other rights it may have, to charge interest on the outstanding amount (both before and after any judgment) at the rate of [specify] % per annum. [Alternatively: Specify other rate of interest agreed by the Parties.] </p>
+		<p>[Comment: The Parties should take into consideration that in some legal systems payment of interest is unlawful, or is subject to a legal maximum rate, or there is provision for statutory interest on late payments.] </p>
+
+		<p>7. Non-performance of the Seller’s obligation to deliver the Goods at the agreed time </p>
+		<p>7.1 If the Seller fails to deliver the Goods at the agreed time, the Buyer shall fix to the Seller an additional period of time of (specify the length) for performance of delivery. If the Seller fails to deliver the Goods at the expiration of the additional period, the Buyer may declare this contract avoided in accordance with Article 10 of this contract. </p>
+		<p>8. Lack of conformity </p>
+		<p>8.1 The Buyer shall examine the Goods, or cause them to be examined within as short period as is practicable in the circumstances. The Buyer shall notify the Seller of any lack of conformity of the Goods, specifying the nature of the lack of conformity, within  . . . . . . . . . days after the Buyer has discovered or ought to have discovered the lack of conformity. In any event, the Buyer loses the right to rely on a lack of conformity if he fails to notify the Seller thereof at the latest within a period of two years (other period of time) from the date on which the Goods were actually handed over to the Buyer. </p>
+		<p>8.2  Where the Buyer has given due notice of non-conformity to the Seller, the Buyer may at his option: </p>
+
+		<p>8.2.1 Require the Seller to deliver any missing quantity of the Goods, without any additional expense to the Buyer; </p>
+		<p>8.2.2 Require the Seller to replace the Goods with conforming goods, without any additional expense to the Buyer; </p>
+		<p>8.2.3 Require the Seller to repair the Goods, without any additional expense to the Buyer; 8.2.4 Reduce the price in the same proportion as the value that the Goods actually delivered had at the time of the delivery bears to the value that conforming goods would have had at that time. The Buyer may not reduce the price if the Seller replaces the Goods with conforming goods or repairs the Goods in accordance with paragraph 8.2.2 and 8.2.3 of this Article or if the Buyer refuses to accept such performance by the Seller; </p>
+		<p>8.2.5 Declare this contract avoided in accordance with Article 10 of this contract. </p>
+		<p>9. Transfer of property </p>
+		<p>The Seller must deliver to the Buyer the Goods specified in Article 1 of this contract free from any right or claim of a third person. [Option: “Retention of title. The Seller must deliver to the Buyer the Goods specified in Article 1 of this contract free from any right or claim of a third person. The property in the Goods shall not pass to the Buyer until the Seller has received payment in full of the price of the Goods. Until property in the Goods passes to the Buyer, the Buyer shall keep the Goods separate from those of the Buyer and third parties and properly stored, protected and insured and identified as the Seller’s property”.]</p>
+
+		<p>10.  Avoidance* of contract </p>
+		<p>10.1 There is a breach of contract where a party fails to perform any of its obligations under this contract, including defective, partial or late performance.  </p>
+		<p>10.2 There is a fundamental breach of contract where: </p>
+		<p>10.2.1 Strict compliance with the obligation which has not been performed is of the essence under this contract; or </p>
+		<p>10.2.2 The non-performance substantially deprives the aggrieved party of what it was reasonably entitled to expect under this contract. [Option: “The Parties additionally agree that the following is to be considered as a fundamental breach of contract: (Specify the cases that constitute a fundamental breach of contract e.g. late payment, late delivery, non-conformity, etc.)”.] </p>
+		<p>10.3 In a case of a breach of contract according to paragraph 10.1 of this Article, the aggrieved party shall, by notice to the other party, fix an additional period of time of (specify the length) for performance. During the additional period of time the aggrieved party may withhold performance of its own reciprocal obligations and may claim damages, but may not declare this contract avoided. If the other party fails to perform its obligation within the additional period of time, the aggrieved party may declare this contract avoided. </p>
+		<p>10.4 In case of a fundamental breach of contract according to paragraph 10.2 of this Article, the aggrieved party may declare this contract avoided without fixing an additional period of time for performance to the other party. </p>
+		<p>10.5 A declaration of avoidance of this contract is effective only if made by notice to the other party.   </p>
+  	<p>* Note: For the purposes of this Model Contract, the term “Avoidance” is taken from the CISG and means termination of contract.</p>
+
+		<p>11. Force majeure – excuse for non-performance </p>
+		<p>11.1 “Force majeure” means war, emergency, accident, fire, earthquake, flood, storm, industrial strike or other impediment which the affected party proves was beyond its control and that it could not reasonably be expected to have taken the impediment into account at the time of the conclusion of this contract or to have avoided or overcome it or its consequences. </p>
+		<p>11.2 A party affected by force majeure shall not be deemed to be in breach of this contract, or otherwise be liable to the other, by reason of any delay in performance, or the non-performance, of any of its obligations under this contract to the extent that the delay or non-performance is due to any force majeure of which it has notified the other party in accordance with Article 11.3. The time for performance of that obligation shall be extended accordingly, subject to Article 11.4. </p>
+		<p>11.3 If any force majeure occurs in relation to either party which affects or is likely to affect the performance of any of its obligations under this contract, it shall notify the other party within a reasonable time as to the nature and extent of the circumstances in question and their effect on its ability to perform.  </p>
+
+
+		<p>11.4 If the performance by either party of any of its obligations under this contract is prevented or delayed by force majeure for a continuous period in excess of three [specify any other figure] months, the other party shall be entitled to terminate this contract by giving written notice to the Party affected by the force majeure. [If preferred, replace 11.4 with the following alternative:  “11.4 If the performance by either party of any of its obligations under this contract is prevented or delayed by force majeure for a continuous period in excess of three [specify any other figure] months, the Parties shall negotiate in good faith, and use their best endeavours to agree upon such amendments to this contract or alternative arrangements as may be fair and reasonable with a view to alleviating its effects, but if they do not agree upon such amendments or arrangements within a further period of 30 [specify any other figure] days, the other party shall be entitled to terminate this contract by giving written notice to the Party affected by the force majeure”.] </p>
+		<p>12. Entire agreement </p>
+		<p>12.1 This contract sets out the entire agreement between the Parties. Neither party has entered into this contract in reliance upon any representation, warranty or undertaking of the other party that is not expressly set out or referred to in this contract. This Article shall not exclude any liability for fraudulent misrepresentation. [Add where relevant: “This contract supersedes any previous agreement or understanding relating its subject matter”]. </p>
+		<p>12.2 This contract may not be varied except by an agreement of the Parties in writing (which may include e-mail). </p>
+
+
+		<p>13. Notices </p>
+		<p>13.1 Any notice under this contract shall be in writing (which may include e-mail) and may be served by leaving it or sending it to the address of the other party as specified in Article 13.2 below, in a manner that ensures receipt of the notice can be proved. </p>
+		<p>13.2 For the purposes of Article 13.1, notification details are the following, unless other details have been duly notified in accordance with this Article:</p>
+
+		<p>14. Dispute resolution procedure </p>
+		<p>Any dispute, controversy or claim arising out of or relating to this contract, including its conclusion, interpretation, performance, breach, termination or invalidity, shall be finally settled under the rules of [specify the arbitration institution] by [specify the number of arbitrators, e.g. sole arbitrator or, if appropriate, three arbitrators] appointed in accordance with the said rules. The place of arbitration shall be [specify]. The language of the arbitration shall be [specify]. [The following are alternatives to a specified arbitral institution under Article </p>
+		<p>15. Applicable law and guiding principles </p>
+		<p>15.1 Questions relating to this contract that are not settled by the provisions contained in the contract itself shall be governed by the United Nations Convention on Contracts for the International Sale of Goods (Vienna Sales Convention of 1980, hereafter referred to as CISG). Questions not covered by the CISG shall be governed by the UNIDROIT Principles of International Commercial Contracts (hereafter referred to as UNIDROIT Principles), and to the extent that such questions are not covered by the UNIDROIT Principles, by reference to [specify the relevant national law by choosing one of the following options: The applicable national law of the country where the Seller has his place of business, or The applicable national law of the country where the Buyer has his place of business, or The applicable national law of a third country (specify the country).] 15.2 This contract shall be performed in a spirit of good faith and fair dealing.</p>
+
+
+</body>
+</html>*@

@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Facade\**" />
+    <EmbeddedResource Remove="Facade\**" />
+    <None Remove="Facade\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\MessageTemplateDynamicFields.cs" />
+    <Compile Remove="Interfaces\Repository\IMessageTemplateDynamicFieldsRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Entities\Email.cs~RF1ef2022.TMP" />
+    <None Remove="Entities\SocialMedia.cs~RF1ddcc58.TMP" />
+    <None Remove="Services\Commom\EmailServices.cs~RF16bc1c3.TMP" />
+    <None Remove="ViewModel\DepartmentViewModel.cs~RF85ffe4.TMP" />
+    <None Remove="ViewModel\EmployeeViewModel.cs~RF97b269.TMP" />
+    <None Remove="ViewModel\PhysicalPersonViewModel.cs~RF1e1967f.TMP" />
+    <None Remove="ViewModel\UserViewModel.cs~RF1739780.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="ClosedXML" Version="0.100.3" />
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="3.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.16" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.17.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.8.*" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.8.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GoogleApis">
+      <HintPath>..\Libs\GoogleApis.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+<ItemGroup>
+     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+ </ItemGroup>
+</Project>

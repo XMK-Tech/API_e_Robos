@@ -1,0 +1,58 @@
+﻿@model AgilleApi.Domain.ViewModel.TaxProcessPrintModel
+@{
+    Layout = null;   
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Relatório de Processo fiscal</title>
+</head>
+
+<body>
+    <table>
+        <tr style="vertical-align: middle; width: 100%;">
+            <td colspan="1">
+                <div style="float:left; vertical-align: middle;">
+                    <img src="@Model.Image" alt="logo"style="width:90px;height:90px;">
+                </div>
+            </td>
+            <td colspan="4">
+                <div style="float:left; vertical-align: middle;">
+                    <h2>Prefeitura Municipal de @Model.EntityName - @Model.StateInitials</h2>
+                    <h3>Relatório de Processo fiscal</h3>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <br><br><br><br><br>
+    
+    @{
+        var now = DateTime.UtcNow.AddHours(-3);
+    }
+
+    <div>
+        <p style="text-align: right;">@Model.EntityName, @Model.StateInitials, @now.ToString("d' de 'MMMM' de 'yyyy")</p>
+    </div>
+    
+    <br>
+    
+    <footer style="bottom: 0; width: 100%;">
+        <div style="text-align: right;">
+            <hr size="3" width="20%" align="right" style="background-color: black;">@Model.Auditor 
+            <br>
+            Auditora(or) Fiscal 
+            <br>--- <br>
+        </div>
+        
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        
+        <div>
+            <div style="text-align: right; float:right">@now.ToString("dd/MM/yyyy HH:mm") &nbsp</div>
+        </div>
+    </footer>          
+</body>
+</html>

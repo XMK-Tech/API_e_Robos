@@ -1,0 +1,103 @@
+﻿@using AgilleApi.Domain.Enums
+@model AgilleApi.Domain.ViewModel.ForwardingTermNoticeModel
+@{
+    Layout = null;   
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>Termo de juntada de AR.</title>
+
+    <style>
+        .arspace {
+            width: 615px; 
+            height: 410px; 
+                        
+            margin: 0 auto;
+        }
+
+        .arspacetext {
+            font-size: 35px;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr style="vertical-align: middle; width: 100%;">
+            <td colspan="1">
+                <div style="float:left; vertical-align: middle;">
+                    <img src="@Model.Image" alt="logo"style="width:90px;height:90px;">
+                </div>
+            </td>
+            <td colspan="4">
+                <div style="float:left; vertical-align: middle;">
+                    <h2>Prefeitura Municipal de @Model.EntityName - @Model.StateInitials</h2>
+                    <h3>Termo de encaminhamento de processo a RFB @Model.WithObjectionText impugnação.</h3>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    <div style="width: 100%;">
+        Processo Nº: @Model.ProcessNumber<br>
+        Documento Nº: @Model.DocumentNumber <br>
+        Sujeito Passivo: @Model.SubjectName <br>
+        CIB: @Model.ProprietyCib <br>
+        CPF/CNPJ: @Model.SubjectDocument <br>
+    </div>
+    
+    <br>
+    
+    <div>
+        <h1 style="text-align: center;">
+            Termo de juntada de aviso de recebimento - ECT
+        </h1>
+        
+        <p style="text-align: justify;">
+            Juntei a esse processo Aviso de Recebimento (AR) referente a @(Model.Type.GetDescription()) - @Model.DocumentNumber de folhas @Model.HomePageNumber a @Model.AtualPageNumber.
+        </p>
+    </div>
+    
+    <br>
+    
+    @{
+        var now = DateTime.UtcNow.AddHours(-3);
+    }
+        
+    <br><br>
+
+    <div class="arspace">
+        <p class="arspacetext">
+            <br><br><br>
+        </p>    
+    </div>
+
+    <br><br><br><br>
+
+    <footer style="bottom: 0; width: 100%;">
+        <div style="text-align: right;">
+            <p style="text-align: right;">
+                 @Model.EntityName, @Model.StateInitials, @now.ToString("d' de 'MMMM' de 'yyyy")
+            </p>
+            
+            <hr size="3" width="20%" align="right" style="background-color: black;">@Model.Auditor 
+            <br>
+            Auditora(or) Fiscal 
+            <br>--- <br>
+        </div>
+        
+        <br><br><br><br><br><br><br><br><br><br><br>
+
+        <div>
+            <div style="text-align: left; float:left">Folha @Model.AtualPageNumber</div>
+            <div style="text-align: right; float:right">@now.ToString("dd/MM/yyyy HH:mm") &nbsp</div>
+        </div>
+    </footer>          
+</body>
+</html>

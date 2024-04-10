@@ -1,0 +1,535 @@
+﻿@using AgilleApi.Domain.Extensions;
+@model AgilleApi.Domain.ViewModel.AgiprevCalculationViewModel
+@{
+    
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>MEDIÇÃO</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        body {
+            line-height: 1;
+        }
+
+        ol,
+        ul {
+            list-style: none;
+        }
+
+        blockquote,
+        q {
+            quotes: none;
+        }
+
+            blockquote:before,
+            blockquote:after,
+            q:before,
+            q:after {
+                content: '';
+                content: none;
+            }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        table {
+            width: 1640px;
+            margin: 20px auto;
+            font-size: 12px;
+        }
+
+        td, th {
+            padding: 3px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .description-col-w {
+            width: 400px;
+        }
+
+        .row-space {
+            height: 15px;
+        }
+
+        .font-title {
+            font-size: 19px;
+            padding: 10px 0 10px 0;
+        }
+
+        .font-subtitle {
+            font-size: 15px;
+            padding: 10px 0 10px 0;
+        }
+
+        .cnpj {
+            font-size: 13px;
+            text-align: right;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .cnpj-td {
+            vertical-align: top;
+        }
+        
+        .img {
+            display: block;
+            margin: 0 0 60px 0;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <table class="ordem" aria-describedby="">
+            <thead>
+                <tr>
+                    <th colspan="8" id="">
+                        <img class="img" src="@Model.LogoBase64" alt="AGIPREV">
+                    </th>
+                    <th colspan="4" id="" class="cnpj-td">
+                        <p class="cnpj">
+                            @Model.EntityName
+                        </p>
+                    </th>
+                    <th colspan="4" id="" class="cnpj-td">
+                        <p class="cnpj">
+                            @Model.EntityDocument
+                        </p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="14" class="bold center font-subtitle">
+                        REVISÃO DA CONTRIBUIÇÃO PARA O PROGRAMA DE FORMAÇÃO DO PATRIMÔNIO DO SERVIDOR PÚBLICO - PASEP -
+                        EXERCICIO DE @Model.Year
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold center">
+                        Categoria Econômica
+                    </td>
+                    <td class="bold center description-col-w">
+                        Descrição
+                    </td>
+                    <td class="bold center">
+                        jan/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        fev/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        mar/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        abr/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        mai/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        jun/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        jul/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        ago/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        set/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        out/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        nov/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        dez/@Model.ShortYear
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center">
+                        100000000000000000
+                    </td>
+                    <td>
+                        Receita Corrente
+                    </td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right">
+                                @line.CurrentRevenue.FormatValue()
+                            </td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center">
+                        200000000000000000
+                    </td>
+                    <td>
+                        Receita de Capital
+                    </td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right">
+                                @line.CapitalRevenue.FormatValue()
+                            </td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center">
+                        700000000000000000
+                    </td>
+                    <td>
+                        Receita Intra-Orçamentária
+                    </td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right">
+                                @line.IntraBudgetRevenue.FormatValue()
+                            </td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center">
+                        900000000000000000
+                    </td>
+                    <td>
+                        (-) Dedução Fundeb e Restituições
+                    </td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right">
+                                @line.FundebDeductionAndRefunds.FormatValue()
+                            </td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center">
+                    </td>
+                    <td class="bold">
+                        Receita Total
+                    </td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right bold">
+                                @line.TotalRevenue.FormatValue()
+                            </td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center">
+                    </td>
+                    <td colspan="13" class="bold center font-title">
+                        MEMÓRIA DE CÁLCULO
+                    </td>
+                </tr>
+                <tr>
+                    <td class="center">
+                    </td>
+                    <td class="bold center description-col-w">
+                        Deduções PASEP
+                    </td>
+                    <td class="bold center">
+                        jan/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        fev/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        mar/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        abr/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        mai/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        jun/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        jul/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        ago/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        set/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        out/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        nov/@Model.ShortYear
+                    </td>
+                    <td class="bold center">
+                        dez/@Model.ShortYear
+                    </td>
+                </tr>
+                @{
+                    foreach (var line in Model.IntermediateLines)
+                    {
+                        <tr>
+                            <td class="center">
+                                @line.Account
+                            </td>
+                            <td>
+                                @line.Title
+                            </td>
+                            @{
+                                foreach (var item in line.Competences)
+                                {
+                                    <td class="right">
+                                        @item.SumOfTheMonth.FormatValue()
+                                    </td>
+                                }
+                            }
+                        </tr>
+                    }
+                }
+                <tr>
+                    <td class="center"></td>
+                    <td class="bold">Total Deduções da Base de Cálculo</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right bold">@line.TotalDeductionsFromTheCalculationBasis.FormatValue()</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td colspan="14" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="center"></td>
+                    <td class="bold">Base para Cálculo PASEP</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right bold">@line.BasisForPASEPCalculation.FormatValue()</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center"></td>
+                    <td>PASEP 1%</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right">@line.PASEPOnePercent.FormatValue()</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center"></td>
+                    <td>Retenções PASEP na Fonte</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right">@line.PASEPWithholdingsAtSource.FormatValue()</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td colspan="14" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="center"></td>
+                    <td class="bold">Valor a Recolher</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right bold">@line.AmountToBeCollected.FormatValue()</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center"></td>
+                    <td class="bold">Valor Recolhido</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right bold">@line.AmountCollected.FormatValue()</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center"></td>
+                    <td>Data Recolhimento</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right">@line.CollectionDate</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td colspan="14" class="row-space"></td>
+                </tr>
+                <tr>
+                    <td class="center"></td>
+                    <td>Valor à Arbitrar</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right">@line.AmountToArbitrate.FormatValue()</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    <td class="center"></td>
+                    <td class="bold">Atualização Selic @DateTime.Now.ToString("dd/MM/yyyy")</td>
+                    @{
+                        foreach (var line in Model.Competences)
+                        {
+                            <td class="right bold">@line.UpdateSelicToday.FormatValue()</td>
+                        }
+                    }
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+</body>
+
+</html>

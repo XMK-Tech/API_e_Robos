@@ -1,0 +1,151 @@
+﻿@using AgilleApi.Domain.Extensions
+@model AgilleApi.Domain.ViewModel.TaxProcedureReportModel
+@{
+    Layout = null;   
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="utf-8" />
+    <title>RELATÓRIO DE PRAZOS</title>
+
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/ 
+        v2.0 | 20110126
+        License: none (public domain)
+        */
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed, 
+        figure, figcaption, footer, header, hgroup, 
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure, 
+        footer, header, hgroup, menu, nav, section {
+        display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+        }
+        /*Tabela*/
+        table {
+            width: 940px;
+            margin: 20px auto;
+        }
+
+        /*Corpo Tabela*/
+
+        td {
+            border: 2px solid black;
+            border-top: none;
+            padding: 2px;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+    </style>
+
+    <!-- Razor table config -->
+    <style type="text/css">
+        table { page-break-inside:auto }
+        tr    { page-break-inside:avoid; page-break-after:auto }
+        thead { display:table-header-group }
+        tfoot { display:table-footer-group }
+    </style>
+</head>
+
+<body>
+    <div class="center" style="width: 100%;">
+        <img src="@Model.Image" alt="logo"style="width:150px;height:150px;">
+    </div>
+    
+    </br></br></br>
+    
+    <div class="center" style="font-size: 25px;">
+        <h1>RELATÓRIO DE PRAZOS</h1>
+    </div>
+
+    </br></br></br>
+
+    <div>
+        <p style="text-align: left;">Período: @Model.StartDate.ToShortDateString() a @Model.EndDate.ToShortDateString()</p>
+    </div>
+    
+    </br></br></br>
+    
+    <table>
+        <thead>
+            <tr style="border-top: 50px;">
+                <td class="center" style="border: 2px solid black;"> PROCEDIMENTO </td>
+                <td class="center" style="border: 2px solid black;"> DATA DA RESPOSTA </td>
+                <td class="center" style="border: 2px solid black;"> TEMPESTIVA? </td>
+            </tr>   
+        </thead>
+        <tbody>
+            @{
+                foreach(var line in Model.Itens)
+                {
+                    <tr>
+                        <td class="center">@line.ProcessNumber</td>
+                        <td class="center">@( line.ResponseDate.HasValue ? line.ResponseDate.Value.ToString(@"dd/MM/yyyy") : null )</td>
+                        <td class="center">@line.Tempest</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div>
+        @{
+            var now = DateTime.UtcNow.AddHours(-3);
+        }
+        
+        Relatório extraido por: @Model.UserName </br>
+        Data: @now.ToShortDateString() </br>
+
+        Horário: @($"{now.Hour}:{now.Minute.ToString("D2")}") </br>
+    </div>
+</body>
+</html>

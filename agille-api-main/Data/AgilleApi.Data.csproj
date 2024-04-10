@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\Permissions\**" />
+    <Compile Remove="Repository\InsertDatas\**" />
+    <EmbeddedResource Remove="Migrations\Permissions\**" />
+    <EmbeddedResource Remove="Repository\InsertDatas\**" />
+    <None Remove="Migrations\Permissions\**" />
+    <None Remove="Repository\InsertDatas\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210311203923_v3.cs" />
+    <Compile Remove="Migrations\20210311203923_v3.Designer.cs" />
+    <Compile Remove="Migrations\20210326131911_permissions.cs" />
+    <Compile Remove="Migrations\20210326131911_permissions.Designer.cs" />
+    <Compile Remove="Migrations\20210326164250_permissions.cs" />
+    <Compile Remove="Migrations\20210326164250_permissions.Designer.cs" />
+    <Compile Remove="Migrations\20210326175210_Permission_1.cs" />
+    <Compile Remove="Migrations\20210326175210_Permission_1.Designer.cs" />
+    <Compile Remove="Migrations\20210326180819_Migration_Permission.cs" />
+    <Compile Remove="Migrations\20210326180819_Migration_Permission.Designer.cs" />
+    <Compile Remove="Migrations\20210326181313_Migration_Permission.cs" />
+    <Compile Remove="Migrations\20210326181313_Migration_Permission.Designer.cs" />
+    <Compile Remove="Migrations\20210326182642_Migration_Permission.cs" />
+    <Compile Remove="Migrations\20210326182642_Migration_Permission.Designer.cs" />
+    <Compile Remove="Migrations\20210326183949_Migration_Permission.cs" />
+    <Compile Remove="Migrations\20210326183949_Migration_Permission.Designer.cs" />
+    <Compile Remove="Migrations\20210326185015_Migration_Permission.cs" />
+    <Compile Remove="Migrations\20210326185015_Migration_Permission.Designer.cs" />
+    <Compile Remove="Migrations\20210326185804_Migration_Permission.cs" />
+    <Compile Remove="Migrations\20210326185804_Migration_Permission.Designer.cs" />
+    <Compile Remove="Migrations\20210326195658_PermissionsCOMPANY.cs" />
+    <Compile Remove="Migrations\20210326195658_PermissionsCOMPANY.Designer.cs" />
+    <Compile Remove="Migrations\20210330232758_Fks.cs" />
+    <Compile Remove="Migrations\20210330232758_Fks.Designer.cs" />
+    <Compile Remove="Migrations\20210330233644_Fks.cs" />
+    <Compile Remove="Migrations\20210330233644_Fks.Designer.cs" />
+    <Compile Remove="Migrations\20210330234603_Fks.cs" />
+    <Compile Remove="Migrations\20210330234603_Fks.Designer.cs" />
+    <Compile Remove="Migrations\20210331000827_Fks.cs" />
+    <Compile Remove="Migrations\20210331000827_Fks.Designer.cs" />
+    <Compile Remove="Migrations\20210401194343_Cascades.cs" />
+    <Compile Remove="Migrations\20210401194343_Cascades.Designer.cs" />
+    <Compile Remove="Migrations\20210402202936_Validations.cs" />
+    <Compile Remove="Migrations\20210402202936_Validations.Designer.cs" />
+    <Compile Remove="Migrations\20210408203410_[Requisito_-_API]_-_Manter_Mensagens.cs" />
+    <Compile Remove="Migrations\20210408203410_[Requisito_-_API]_-_Manter_Mensagens.Designer.cs" />
+    <Compile Remove="Migrations\20210510205723_displayname.cs" />
+    <Compile Remove="Migrations\20210510205723_displayname.Designer.cs" />
+    <Compile Remove="Migrations\20210510210015_CascadeTemplateField.cs" />
+    <Compile Remove="Migrations\20210510210015_CascadeTemplateField.Designer.cs" />
+    <Compile Remove="Migrations\20210510210344_CascadeTemplateFieldII.cs" />
+    <Compile Remove="Migrations\20210510210344_CascadeTemplateFieldII.Designer.cs" />
+    <Compile Remove="Migrations\20210707230957_ConfirmationToken.cs" />
+    <Compile Remove="Migrations\20210707230957_ConfirmationToken.Designer.cs" />
+    <Compile Remove="Migrations\20220219145528_Colaborador_CRUD_v2.cs" />
+    <Compile Remove="Migrations\20220219145528_Colaborador_CRUD_v2.Designer.cs" />
+    <Compile Remove="Repository\MessageTemplateDynamicFieldsRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Context\ContextData.cs~RF221de20.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\AgilleApi.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="GoogleApis">
+      <HintPath>..\Libs\GoogleApis.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+<ItemGroup> <Content Include="Migrations\**\*.sql" CopyToPublishDirectory="PreserveNewest" /><!-- CopyToPublishDirectory = { Always, PreserveNewest, Never } --></ItemGroup>
+
+</Project>
